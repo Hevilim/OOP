@@ -1,6 +1,29 @@
 import java.util.Scanner;
 import java.util.Vector;
 
+public class Problem5 {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        DragonLaunch dragon = new DragonLaunch();
+        
+        System.out.println("Enter students (B, G): ");
+        System.out.print("Input: ");
+        String line = scanner.nextLine().toUpperCase();
+        
+        for (int i = 0; i < line.length(); i++) {
+            char c = line.charAt(i);
+            if (c == 'B') {
+                dragon.kidnap(new Person(Gender.BOY));
+            } else if (c == 'G') {
+                dragon.kidnap(new Person(Gender.GIRL));
+            }
+        }
+
+        System.out.println("Will dragon eat? " + dragon.willDragonEatOrNot());
+        
+        scanner.close();
+    }
+
 enum Gender {
 
     BOY, GIRL;
@@ -86,28 +109,5 @@ class DragonLaunch {
         }
         System.out.println();
     }
-}
-
-public class Problem5 {
-    public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
-        DragonLaunch dragon = new DragonLaunch();
-        
-        System.out.println("Enter students (B, G): ");
-        System.out.print("Input: ");
-        String line = scanner.nextLine().toUpperCase();
-        
-        for (int i = 0; i < line.length(); i++) {
-            char c = line.charAt(i);
-            if (c == 'B') {
-                dragon.kidnap(new Person(Gender.BOY));
-            } else if (c == 'G') {
-                dragon.kidnap(new Person(Gender.GIRL));
-            }
-        }
-
-        System.out.println("Will dragon eat? " + dragon.willDragonEatOrNot());
-        
-        scanner.close();
-    }
+	}
 }
